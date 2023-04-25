@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="../images/icon/favicon.png">
+	<title>Prepare for GATE on LearnEd</title>
+	<link rel="stylesheet" type="text/css" href="subjects.css">
+	<script type="text/javascript" src="../script.js"></script>
+    <link rel="stylesheet" href="./table/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./table/css/dataTables.bootstrap5.min.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+	<header>
+		<div class="nav" id="nav">
+			<div id="learned-logo">
+			<a href="../index.html"><img src="../images/icon/logo.png" style="width: 120px;"></a></div>
+			<div class="switch-tab" id="switch-tab" onclick="switchTAB()"><img src="../images/icon/menu.png"></div>
+			<ul id="list-switch">
+				<li><a href="jee.html"><img src="../images/courses/d1.png" class="icon">JEE</a></li>
+				<li><a href="#"><img src="../images/courses/paper.png" class="icon">GATE</a></li>
+				<li><a href="computer_courses.html"><img src="../images/courses/computer.png" class="icon">Computer Courses</a></li>
+				<li><a href="computer_courses.html#data"><img src="../images/courses/data.png" class="icon">Data Structures</a></li>
+				<li><a href="computer_courses.html#algo"><img src="../images/courses/algo.png" class="icon">Algorithm</a></li>
+				<li><a href="computer_courses.html#projects"><img src="../images/courses/projects.png" class="icon">Projects</a></li>
+			</ul>
+			<div class="search" id="search-switch">
+				<input type="text" placeholder="Search" class="srch"><button id="srchbtn"><img src="../images/icon/search.png"></button>
+			</div>
+		</div>
+	</header>
+
+  <table id="example" class="table table-striped" style="width:100%;height:350px; direction: rtl; padding:10px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>الملخص</th>
+            <th>المادة</th>
+            <th>المهمة</th>
+            <th>التاريخ</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>ملخص المحاضرة الاولي</td>
+            <td>محاسبة ادارية</td>
+            <td>لا يوجد</td>
+            <td>2023-04-25</td>
+            
+        </tr>
+
+      
+        <tr>
+            <td>2</td>
+            <td>Software Engineer</td>
+            <td>San Francisco</td>
+            <td>28</td>
+            <td>2011-06-07</td>
+            
+        </tr>
+        <tr>
+            <td>Fiona Green</td>
+            <td>Chief Operating Officer (COO)</td>
+            <td>San Francisco</td>
+            <td>48</td>
+            <td>2010-03-11</td>
+            
+        </tr>
+    
+        <tr>
+            <td>Michael Bruce</td>
+            <td>Javascript Developer</td>
+            <td>Singapore</td>
+            <td>29</td>
+            <td>2011-06-27</td>
+            
+        </tr>
+        <tr>
+            <td>Donna Snider</td>
+            <td>Customer Support</td>
+            <td>New York</td>
+            <td>27</td>
+            <td>2011-01-25</td>
+            
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+          <th>ID</th>
+          <th>الملخص</th>
+          <th>المادة</th>
+          <th>المهمة</th>
+          <th>التاريخ</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#example').DataTable();
+});
+
+</script>
+</body>
+</html>
