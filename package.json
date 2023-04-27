@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "datatables.net-buttons": "^2.3.6"
+  }
+}

@@ -2,11 +2,32 @@
 <html>
 <head>
 	<link rel="shortcut icon" type="png" href="../images/icon/favicon.png">
-	<title>Prepare for JEE Mains & Advanced</title>
+	<title>المواد الدراسية</title>
 	<link rel="stylesheet" type="text/css" href="subjects.css">
   <script type="text/javascript" src="../script.js"></script>
   <link rel="stylesheet" href="./table/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./table/css/dataTables.bootstrap5.min.css">
+
+
+
+  <!-- تضمين Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />
+
+  <!-- تضمين مكتبة jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- تضمين DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+  
+  <!-- تضمين DataTables -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  
+  <!-- تضمين DataTables Buttons CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+  
+  <!-- تضمين DataTables Buttons -->
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
 </head>
 <body>
 
@@ -106,13 +127,40 @@
 </table>
 
 
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script>
-$(document).ready(function () {
-    $('#example').DataTable();
-});
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'csv',
+                text: 'تحميل الملف',
+                className: 'btn btn-primary',
+                filename: 'اسم-الملف'
+            }
+        ]
+    } );
+  
+} );
+
+function downloadFile() {
+  if (confirm("هل أنت متأكد من أنك تريد تحميل هذا الملف؟")) {
+    var link = document.createElement("a");
+    link.href = "https://www.mediafire.com/file/irfp86wp33lrega/resume.pdf/file";
+    link.download = "اسم الملف";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.history.back();
+  } else {
+    alert("لم يتم تحميل الملف");
+  }
+}
 
 </script>
 </body>
