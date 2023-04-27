@@ -164,7 +164,7 @@ a, button {
 .menu {
 	cursor: pointer;
 	width: 25px;
-	display: block;
+	display: none;
 }
 .side-menu {
 	width: 100%;
@@ -903,10 +903,13 @@ footer .btn:hover {
 		margin: 20px;
 		/* align-self: center; */
 	}
+  
 }
 
 @media screen and (max-width: 1000px) {	
 	.feedbox form input, .feedbox form .fname{
 		width: 100%;
 	}
+
+
 }
