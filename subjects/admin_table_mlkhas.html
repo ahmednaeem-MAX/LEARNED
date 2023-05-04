@@ -1,101 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="ar">
 <head>
-  <title>My Table</title>
-</head>
-<style>
-  table {
-    direction: rtl;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  th, td {
-    padding: 8px;
-    text-align: center;
-  }
-  th {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-  }
-  td {
-    border: 1px solid #ddd;
-  }
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  tr:hover {
-    background-color: #ddd;
-  }
-  button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  button.edit {
-    background-color: #2196F3;
-  }
-  button.delete {
-    background-color: #f44336;
-  }
-  button.add {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
+    <title>الملخصات الدراسية</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-</style>
+  <style type="text/css">
+  
+        /* تغيير اتجاه الجدول إلى اليمين */
+        table.dataTable {
+            direction: rtl;
+        }
+
+        #btn{
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          width: 50px;
+          padding: 2px;
+        }
+        button{
+          color: #fff;
+          border: #fff solid 1px;
+          border-radius: 5px;
+          padding: 5px;
+          width: 100px;
+
+        }
+        
+    </style>
+</head>
 <body>
-  <table id="fileTable">
+ 
+<table id="example" class="display" style="width:100%">
     <thead>
-      <tr>
-        <th>اسم الملف</th>
-        <th>حجم الملف</th>
-        <th>تاريخ الإنشاء</th>
-        <th>خيارات</th>
-      </tr>
+        <tr>
+            <th>الاسم</th>
+            <th>المادة</th>
+            <th>العرض</th>
+            <th>تاريخ البدء</th>
+            <th>الإجراءات</th>
+        </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>ملف1.pdf</td>
-        <td>20 KB</td>
-        <td>01/01/2022</td>
-        <td>
-          <button onclick="editFile(this)">تعديل</button>
-          <button onclick="deleteFile(this)">حذف</button>
-        </td>
-      </tr>
-      <tr>
-        <td>ملف2.docx</td>
-        <td>50 KB</td>
-        <td>01/02/2022</td>
-        <td>
-          <button onclick="editFile(this)">تعديل</button>
-          <button onclick="deleteFile(this)">حذف</button>
-        </td>
-      </tr>
+  <tr>
+    <td>بنك الأسئلة-ميدترم</td>
+    <td>مبادئ المحاسبة الاداريه</td>
+    <td><a target="_blank" href="../samplePapers/المحاسبة الادارية/بنك اسئلة-ميدتيرم.pdf"><button class="bg-primary">عرض</button></a></td>
+    <td>2011/04/25</td>
+    <td>
+        <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+        <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>
+    </td>
+</tr>
+
     </tbody>
-  </table>
-  
-  <button onclick="addFile()">إضافة ملف</button>
-  
-  <script>
-  function addFile() {
+</table>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script>
+      $(document).ready(function() {
+        $('#example').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Arabic.json"
+            }
+        });
+    } );
+    function addFile() {
     // إنشاء صف جديد في الجدول
     var table = document.getElementById("fileTable");
     var row = table.insertRow(-1);
@@ -142,7 +118,10 @@
     var row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
   }
-  </script>
-</body>
+    
+</script>
 
+</body>
 </html>
+
+

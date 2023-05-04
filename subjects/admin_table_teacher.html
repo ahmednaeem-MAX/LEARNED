@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>قائمة الأهداف اليومية</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>قائمة الأهداف اليومية</h1>
+		<ul class="list-group" id="goals-list">
+			<li class="list-group-item">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">هدف 1</label>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">هدف 2</label>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">هدف 3</label>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">هدف 4</label>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="checkbox">
+					<label><input type="checkbox" value="">هدف 5</label>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+  <script>
+    $(document).ready(function(){
+	$("input[type='checkbox']").change(function(){
+		if($(this).prop("checked")){
+			$(this).closest(".list-group-item").addClass("list-group-item-success");
+		} else {
+			$(this).closest(".list-group-item").removeClass("list-group-item-success");
+		}
+	});
+});
+
+$(document).ready(function(){
+	var goals = JSON.parse(localStorage.getItem("goals")) || [];
+	$.each(goals, function(index, value){
+		$("#goals-list input[value='" + value + "']").prop("checked", true);
+		$("#goals-list input[value='" + value + "']").closest(".list-group-item").addClass("list-group-item-success");
+	});
+
+	$("#goals-list input[type='checkbox']").change(function(){
+		var selectedGoals = [];
+		$("#goals-list input[type='checkbox']:checked").each(function(){
+			selectedGoals.push($(this).val());
+		});
+		localStorage.setItem("goals", JSON.stringify(selectedGoals));
+
+		if($(this).prop("checked")){
+			$(this).closest(".list-group-item").addClass("list-group-item-success");
+		} else {
+			$(this).closest(".list-group-item").removeClass("list-group-item-success");
+		}
+	});
+});
+
+  </script>
+</body>
+</html>

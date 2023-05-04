@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <title>مواد دراسية</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <style type="text/css">
+  
+        /* تغيير اتجاه الجدول إلى اليمين */
+        table.dataTable {
+            direction: rtl;
+        }
+
+        #btn{
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          width: 50px;
+          padding: 2px;
+        }
+        button{
+          color: #fff;
+          border: #fff solid 1px;
+          border-radius: 5px;
+          padding: 5px;
+          width: 100px;
+
+        }
+        
+    </style>
+</head>
+<body>
+ 
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>الاسم</th>
+            <th>المادة</th>
+            <th>العرض</th>
+            <th>تاريخ البدء</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>المحاضرة الاولي</td>
+            <td>مبادئ المحاسبة الاداريه</td>
+            <td><a href="../samplePapers/المحاسبة الادارية/ملخص المحاضرة الاولي محاسبه.pdf"><button class="bg-primary">عرض</button></a></td>
+            <td>2023/04/25</td>
+            <td>
+                <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+                <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>
+            </td>
+        </tr>
+        <tr>
+            <td>المحاضرة التانية</td>
+            <td>مبادئ المحاسبة الاداريه</td>
+            <td><a href="../samplePapers/المحاسبة الادارية/ملخص المحاضرة التانية محاسبه.pdf"><button class="bg-primary">عرض</button></a></td>
+            <td>2023/07/25</td>
+            <td>
+              <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+                <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>            </td>
+        </tr>
+        <tr>
+          <td>المحاضرةالثالثة</td>
+          <td>مبادئ المحاسبة الاداريه</td>
+          <td><a href="../samplePapers/المحاسبة الادارية/ملخص المحاضرة الثالثة  محاسبة.pdf"><button class="bg-primary">عرض</button></a></td>
+          <td>2023/07/25</td>
+          <td>
+            <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+              <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>            </td>
+      </tr>
+      <tr>
+        <td>المحاضرة السادسة</td>
+        <td>مبادئ المحاسبة الاداريه</td>
+        <td><a href="../samplePapers/المحاسبة الادارية/ملخص المحاضرة السادسة - محاسبة ادارية.pdf"><button class="bg-primary">عرض</button></a></td>
+        <td>2023/07/25</td>
+        <td>
+          <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+            <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>            </td>
+    </tr>
+    <tr>
+      <td>ملخص المحاضرة السابعة</td>
+      <td>المحاسبة الادارية</td>
+      <td><a href="../samplePapers/المحاسبة الادارية/ملخص المحاضرة السابعة - محاسبة ادارية.pdf"><button class="bg-primary">عرض</button></a></td>
+      <td>2023/07/25</td>
+      <td>
+        <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+          <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>            </td>
+  </tr> 
+   <tr>
+      <td>كتاب لغة الاجنبية</td>
+      <td>لغة الاجنبية</td>
+      <td><a href="../samplePapers/لغة الاجنبية/كتاب لغة اجنبية 2.pdf"><button class="bg-primary">عرض</button></a></td>
+      <td>2023/07/25</td>
+      <td>
+        <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+          <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>            </td>
+  </tr>
+
+    <tr>
+      <td>ملخص المحاضرة الثامنة</td>
+      <td>المحاسبة الادارية</td>
+      <td><a href="../samplePapers/المحاسبة الادارية/ملخص المحاضرة الثامنة - محاسبة إدارية.pdf"><button class="bg-primary">عرض</button></a></td>
+      <td>2023/07/25</td>
+      <td>
+        <button id="btn" class="bg-success"  onclick="editFile(this)">تعديل</button>
+          <button id="btn" class="bg-danger" onclick="deleteFile(this)">حذف</button>            </td>
+  </tr> 
+  
+
+
+
+    </tbody>
+</table>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script>
+      $(document).ready(function() {
+        $('#example').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Arabic.json"
+            }
+        });
+    } );
+    function addFile() {
+    // إنشاء صف جديد في الجدول
+    var table = document.getElementById("fileTable");
+    var row = table.insertRow(-1);
+  
+    // إضافة خلايا الصف
+    var nameCell = row.insertCell(0);
+    var sizeCell = row.insertCell(1);
+    var dateCell = row.insertCell(2);
+    var optionsCell = row.insertCell(3);
+  
+    // إضافة محتوى الخلايا
+    nameCell.innerHTML = "اسم الملف";
+    sizeCell.innerHTML = "حجم الملف";
+    dateCell.innerHTML = "تاريخ الإنشاء";
+    optionsCell.innerHTML = '<button onclick="editFile(this)">تعديل</button>' +
+                             '<button onclick="deleteFile(this)">حذف</button>';
+  }
+  
+  function editFile(button) {
+    // الحصول على صف الملف وتعديل قيم الخلايا
+    var row = button.parentNode.parentNode;
+    var nameCell = row.cells[0];
+    var sizeCell = row.cells[1];
+    var dateCell = row.cells[2];
+  
+    var newName = prompt("أدخل اسم الملف الجديد:", nameCell.innerHTML);
+    if (newName != null) {
+      nameCell.innerHTML = newName;
+    }
+  
+    var newSize = prompt("أدخل حجم الملف الجديد:", sizeCell.innerHTML);
+    if (newSize != null) {
+      sizeCell.innerHTML = newSize;
+    }
+  
+    var newDate = prompt("أدخل تاريخ الإنشاء الجديد:", dateCell.innerHTML);
+    if (newDate != null) {
+      dateCell.innerHTML = newDate;
+    }
+  }
+  
+  function deleteFile(button) {
+    // حذف صف الملف من الجدول
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
+    
+</script>
+
+</body>
+</html>
+
+
